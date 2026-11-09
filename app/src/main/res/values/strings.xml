@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BoxEQ</string>
+
+    <string name="tab_equalizer">Equalizer</string>
+    <string name="tab_apps">Apps</string>
+    <string name="tab_settings">Settings</string>
+
+    <string name="preset_flat">Flat</string>
+    <string name="preset_bass">Bass Boost</string>
+    <string name="preset_vocal">Vocal</string>
+    <string name="preset_treble">Treble</string>
+    <string name="preset_voice_clarity">Voice Message Clarity</string>
+    <string name="preset_custom_suffix">%1$s (custom)</string>
+
+    <string name="status_connected">Connected</string>
+    <string name="status_no_session">App does not expose audio session</string>
+    <string name="status_needs_shizuku">Needs Shizuku</string>
+    <string name="status_waiting">Waiting for playback</string>
+    <string name="status_disabled">Off</string>
+
+    <string name="eq_no_apps">Add an app in the Apps tab first.</string>
+    <string name="eq_select_app">App</string>
+    <string name="eq_preset">Preset</string>
+    <string name="eq_curve_title">Frequency response (approximate)</string>
+    <string name="band_description">Band %1$s Hz</string>
+    <string name="eq_hint">Drag a band to change it. Long-press a band to reset it to 0 dB.</string>
+    <string name="eq_preamp">Preamp</string>
+    <string name="eq_limiter">Limiter (prevents clipping)</string>
+    <string name="eq_reset">Reset bands</string>
+    <string name="eq_save_preset">Save as preset</string>
+    <string name="eq_delete_preset">Delete preset</string>
+    <string name="eq_preset_name">Preset name</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+
+    <string name="apps_add">Add app</string>
+    <string name="apps_empty">No apps yet. Add the apps you want to equalize.</string>
+    <string name="apps_preset_label">Preset: %1$s</string>
+    <string name="apps_edit_eq">Edit EQ</string>
+    <string name="apps_remove">Remove</string>
+    <string name="apps_search">Search apps</string>
+
+    <string name="settings_shizuku_title">Shizuku mode</string>
+    <string name="settings_shizuku_desc">Lets BoxEQ find the audio sessions of apps that do not announce them. Shizuku must be running.</string>
+    <string name="shizuku_off">Shizuku mode is off.</string>
+    <string name="shizuku_not_installed">Shizuku is not installed.</string>
+    <string name="shizuku_not_running">Shizuku is not running. Open Shizuku and start it.</string>
+    <string name="shizuku_needs_permission">Permission required.</string>
+    <string name="shizuku_ready">Active - watching playback.</string>
+    <string name="shizuku_api_failed">Shizuku is running, but the audio query failed on this Android version: %1$s</string>
+    <string name="btn_get_shizuku">Download Shizuku</string>
+    <string name="btn_open_shizuku">Open Shizuku</string>
+    <string name="btn_refresh">Refresh</string>
+    <string name="btn_grant_permission">Grant permission</string>
+    <string name="settings_engine_title">Audio engine</string>
+    <string name="engine_dynamics">DynamicsProcessing (10 bands + limiter)</string>
+    <string name="engine_legacy">Legacy equalizer (device bands, no limiter)</string>
+    <string name="engine_none">No active effect yet</string>
+    <string name="engine_sessions">Active effects: %1$d</string>
+    <string name="settings_show_intro">Show intro and limitations again</string>
+
+    <string name="onboarding_title">Welcome to BoxEQ</string>
+    <string name="onboarding_intro">BoxEQ equalizes the sound of other apps, such as Telegram and Instagram, by attaching an audio effect to their playback. Please read what it can and cannot do.</string>
+    <string name="onboarding_limits_title">Honest limitations</string>
+    <string name="onboarding_limit_session">Android only lets BoxEQ equalize an app if BoxEQ knows that app\'s audio session. Apps that announce their session work right away. Many apps, possibly including Telegram and Instagram, do not announce it.</string>
+    <string name="onboarding_limit_shizuku">Shizuku mode can find those sessions, but it needs the Shizuku app running (it must be started again after every reboot unless your phone is rooted) and Android 12 or newer.</string>
+    <string name="onboarding_limit_device">Some phones do not support the advanced DynamicsProcessing effect. BoxEQ then falls back to the basic equalizer built into the device, with fewer bands and no limiter.</string>
+    <string name="onboarding_limit_service">Effects only last while BoxEQ is running. A notification stays visible while it does; please do not disable it.</string>
+    <string name="onboarding_limit_scope">Apps that use hardware offload, protected (DRM) audio or their own audio engine may ignore the effect. In that case the status shows that the app does not expose its audio session.</string>
+    <string name="onboarding_privacy">BoxEQ has no internet access and never records or stores your audio.</string>
+    <string name="onboarding_notifications">Allow notifications</string>
+    <string name="onboarding_start">Get started</string>
+
+    <string name="notif_channel">Equalizer engine</string>
+    <string name="notif_title_on">BoxEQ is on</string>
+    <string name="notif_title_off">BoxEQ is off</string>
+    <string name="notif_connected">Connected: %1$s</string>
+    <string name="notif_idle">No active audio sessions</string>
+    <string name="notif_preset">Preset: %1$s</string>
+    <string name="notif_action_off">Turn off</string>
+    <string name="notif_action_on">Turn on</string>
+    <string name="notif_action_preset">Next preset</string>
+    <string name="notif_action_stop">Stop</string>
+</resources>

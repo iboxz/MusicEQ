@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BoxEQ</string>
+
+    <string name="tab_equalizer">اکولایزر</string>
+    <string name="tab_apps">برنامه‌ها</string>
+    <string name="tab_settings">تنظیمات</string>
+
+    <string name="preset_flat">خنثی (Flat)</string>
+    <string name="preset_bass">تقویت باس</string>
+    <string name="preset_vocal">وکال</string>
+    <string name="preset_treble">تقویت صدای زیر</string>
+    <string name="preset_voice_clarity">وضوح پیام صوتی</string>
+    <string name="preset_custom_suffix">%1$s (سفارشی)</string>
+
+    <string name="status_connected">متصل</string>
+    <string name="status_no_session">برنامه نشست صوتی خود را در اختیار نمی‌گذارد</string>
+    <string name="status_needs_shizuku">نیازمند Shizuku</string>
+    <string name="status_waiting">در انتظار پخش صدا</string>
+    <string name="status_disabled">خاموش</string>
+
+    <string name="eq_no_apps">ابتدا از تب «برنامه‌ها» یک برنامه اضافه کنید.</string>
+    <string name="eq_select_app">برنامه</string>
+    <string name="eq_preset">پریست</string>
+    <string name="eq_curve_title">پاسخ فرکانسی (تقریبی)</string>
+    <string name="band_description">باند %1$s هرتز</string>
+    <string name="eq_hint">برای تغییر هر باند آن را بکشید. برای بازگشت به ۰ دسی‌بل، روی آن نگه دارید.</string>
+    <string name="eq_preamp">پیش‌تقویت (Preamp)</string>
+    <string name="eq_limiter">محدودکننده (جلوگیری از بریدگی صدا)</string>
+    <string name="eq_reset">بازنشانی باندها</string>
+    <string name="eq_save_preset">ذخیره به‌عنوان پریست</string>
+    <string name="eq_delete_preset">حذف پریست</string>
+    <string name="eq_preset_name">نام پریست</string>
+    <string name="action_save">ذخیره</string>
+    <string name="action_cancel">انصراف</string>
+
+    <string name="apps_add">افزودن برنامه</string>
+    <string name="apps_empty">هنوز برنامه‌ای اضافه نشده است. برنامه‌هایی را که می‌خواهید اکولایز شوند اضافه کنید.</string>
+    <string name="apps_preset_label">پریست: %1$s</string>
+    <string name="apps_edit_eq">ویرایش اکولایزر</string>
+    <string name="apps_remove">حذف</string>
+    <string name="apps_search">جستجوی برنامه</string>
+
+    <string name="settings_shizuku_title">حالت Shizuku</string>
+    <string name="settings_shizuku_desc">به BoxEQ اجازه می‌دهد نشست‌های صوتی برنامه‌هایی را که آن‌ها را اعلام نمی‌کنند پیدا کند. Shizuku باید در حال اجرا باشد.</string>
+    <string name="shizuku_off">حالت Shizuku خاموش است.</string>
+    <string name="shizuku_not_installed">Shizuku نصب نشده است.</string>
+    <string name="shizuku_not_running">Shizuku اجرا نشده است. برنامهٔ Shizuku را باز کنید و آن را راه‌اندازی کنید.</string>
+    <string name="shizuku_needs_permission">اجازهٔ دسترسی لازم است.</string>
+    <string name="shizuku_ready">فعال - در حال پایش پخش صدا.</string>
+    <string name="shizuku_api_failed">Shizuku در حال اجراست، اما پرس‌وجوی صدا در این نسخهٔ اندروید ناموفق بود: %1$s</string>
+    <string name="btn_get_shizuku">دانلود Shizuku</string>
+    <string name="btn_open_shizuku">باز کردن Shizuku</string>
+    <string name="btn_refresh">بازآوری</string>
+    <string name="btn_grant_permission">اعطای اجازه</string>
+    <string name="settings_engine_title">موتور صدا</string>
+    <string name="engine_dynamics">DynamicsProcessing (۱۰ باند + محدودکننده)</string>
+    <string name="engine_legacy">اکولایزر قدیمی (باندهای دستگاه، بدون محدودکننده)</string>
+    <string name="engine_none">هنوز افکتی فعال نیست</string>
+    <string name="engine_sessions">افکت‌های فعال: %1$d</string>
+    <string name="settings_show_intro">نمایش دوبارهٔ راهنما و محدودیت‌ها</string>
+
+    <string name="onboarding_title">به BoxEQ خوش آمدید</string>
+    <string name="onboarding_intro">BoxEQ با اتصال یک افکت صوتی به پخش برنامه‌های دیگر، مثل تلگرام و اینستاگرام، صدای آن‌ها را اکولایز می‌کند. لطفاً توضیح زیر دربارهٔ توانایی‌ها و محدودیت‌ها را بخوانید.</string>
+    <string name="onboarding_limits_title">محدودیت‌ها، با صراحت</string>
+    <string name="onboarding_limit_session">اندروید فقط وقتی اجازهٔ اکولایز کردن یک برنامه را به BoxEQ می‌دهد که BoxEQ شناسهٔ نشست صوتی آن برنامه را بداند. برنامه‌هایی که نشست خود را اعلام می‌کنند فوری کار می‌کنند. بسیاری از برنامه‌ها، احتمالاً از جمله تلگرام و اینستاگرام، آن را اعلام نمی‌کنند.</string>
+    <string name="onboarding_limit_shizuku">حالت Shizuku می‌تواند این نشست‌ها را پیدا کند، اما به برنامهٔ Shizuku در حال اجرا نیاز دارد (اگر گوشی روت نباشد، بعد از هر ریستارت باید دوباره راه‌اندازی شود) و به اندروید ۱۲ یا بالاتر.</string>
+    <string name="onboarding_limit_device">بعضی گوشی‌ها از افکت پیشرفتهٔ DynamicsProcessing پشتیبانی نمی‌کنند. در این صورت BoxEQ به اکولایزر ساده‌ای که داخل خود دستگاه است برمی‌گردد؛ با باندهای کمتر و بدون محدودکننده.</string>
+    <string name="onboarding_limit_service">افکت‌ها فقط تا زمانی که BoxEQ در حال اجراست کار می‌کنند. تا آن موقع یک اعلان دائمی نمایش داده می‌شود؛ لطفاً آن را غیرفعال نکنید.</string>
+    <string name="onboarding_limit_scope">برنامه‌هایی که از Hardware Offload، صدای محافظت‌شده (DRM) یا موتور صوتی اختصاصی خودشان استفاده می‌کنند ممکن است افکت را نادیده بگیرند. در این حالت وضعیت برنامه «نشست صوتی خود را در اختیار نمی‌گذارد» نشان داده می‌شود.</string>
+    <string name="onboarding_privacy">BoxEQ دسترسی اینترنت ندارد و هرگز صدای شما را ضبط یا ذخیره نمی‌کند.</string>
+    <string name="onboarding_notifications">اجازهٔ ارسال اعلان</string>
+    <string name="onboarding_start">شروع</string>
+
+    <string name="notif_channel">موتور اکولایزر</string>
+    <string name="notif_title_on">BoxEQ روشن است</string>
+    <string name="notif_title_off">BoxEQ خاموش است</string>
+    <string name="notif_connected">متصل: %1$s</string>
+    <string name="notif_idle">نشست صوتی فعالی وجود ندارد</string>
+    <string name="notif_preset">پریست: %1$s</string>
+    <string name="notif_action_off">خاموش</string>
+    <string name="notif_action_on">روشن</string>
+    <string name="notif_action_preset">پریست بعدی</string>
+    <string name="notif_action_stop">توقف</string>
+</resources>
