@@ -12,7 +12,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -87,7 +86,12 @@ class PlaybackMonitor(
                 val triggered = withTimeoutOrNull(POLL_INTERVAL_MS) { triggers.receive() } != null
                 if (triggered) {
                     poll()
-                    delay(SETTLE_MS) // let session-ID updates that trail the state change land
+                    // Short, interruptible re-checks instead of one long sleep: a new player that appears
+                    // while we settle (next reel) wakes us immediately and is attached without waiting.
+                    repeat(SETTLE_POLLS) {
+                        withTimeoutOrNull(SETTLE_STEP_MS) { triggers.receive() }
+                        poll()
+                    }
                 }
             }
         } finally {
@@ -120,6 +124,7 @@ class PlaybackMonitor(
 
     private companion object {
         const val POLL_INTERVAL_MS = 4_000L
-        const val SETTLE_MS = 500L
+        const val SETTLE_STEP_MS = 50L
+        const val SETTLE_POLLS = 3
     }
 }

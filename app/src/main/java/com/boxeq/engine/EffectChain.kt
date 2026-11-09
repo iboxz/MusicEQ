@@ -68,6 +68,9 @@ internal class DynamicsChain private constructor(
         fun create(sessionId: Int, initial: EqSettings): DynamicsChain? {
             var dp: DynamicsProcessing? = null
             return try {
+                // The final EQ/preamp/limiter values go straight into the config, so the effect is born
+                // with the right curve and we skip a second round of binder calls. The shorter this
+                // path, the shorter the un-equalised gap when an app opens a brand-new player.
                 val config = DynamicsProcessing.Config.Builder(
                     DynamicsProcessing.VARIANT_FAVOR_FREQUENCY_RESOLUTION,
                     CHANNELS,
@@ -75,11 +78,14 @@ internal class DynamicsChain private constructor(
                     /* mbcInUse = */ false, 0,
                     /* postEqInUse = */ false, 0,
                     /* limiterInUse = */ true,
-                ).build()
+                )
+                    .setInputGainAllChannelsTo(initial.preampDb)
+                    .setPreEqAllChannelsTo(buildEq(initial.gainsDb))
+                    .setLimiterAllChannelsTo(buildLimiter(initial.limiterEnabled))
+                    .build()
                 val effect = DynamicsProcessing(0, sessionId, config)
                 dp = effect
                 val chain = DynamicsChain(effect)
-                chain.apply(initial)
                 check(effect.setEnabled(true) == AudioEffect.SUCCESS) { "setEnabled failed" }
                 chain
             } catch (e: Exception) {

@@ -1,6 +1,7 @@
 package com.boxeq.engine
 
 import com.boxeq.data.EqConfig
+import com.boxeq.data.EqSettings
 import com.boxeq.data.SettingsRepository
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
@@ -49,6 +50,8 @@ class EqEngine(private val repository: SettingsRepository) {
     private val effects = ConcurrentHashMap<Int, EffectChain>()
     private val known = ConcurrentHashMap<Int, KnownSession>()
     private val failed = HashSet<Int>()
+    /** Last settings pushed to each live effect, so unchanged sessions are not re-applied on every poll. */
+    private val applied = HashMap<Int, EqSettings>()
     private var playingWithoutSession: Set<String> = emptySet()
     private var shizukuActive = false
     private var lastKind: EffectKind? = null
@@ -103,7 +106,11 @@ class EqEngine(private val repository: SettingsRepository) {
             }
         }
         known.values.filter { it.viaShizuku && it.sessionId !in seen }.forEach { dropSource(it, broadcast = false) }
-        (known.keys + effects.keys).toSet().forEach { reconcile(it) }
+        // Brand-new sessions first: that is the audible gap. Sessions that already have an effect come after.
+        val all = (known.keys + effects.keys).toSet()
+        val (fresh, existing) = all.partition { it !in effects }
+        fresh.forEach { reconcile(it) }
+        existing.forEach { reconcile(it) }
         publish()
     }
 
@@ -142,8 +149,10 @@ class EqEngine(private val repository: SettingsRepository) {
         val settings = cfg.settingsFor(profile)
         val existing = effects[sessionId]
         if (existing != null) {
+            if (applied[sessionId] == settings) return
             try {
                 existing.apply(settings)
+                applied[sessionId] = settings
             } catch (e: Exception) {
                 // Session died or the effect lost control; drop it and let a later event retry.
                 release(sessionId)
@@ -157,11 +166,13 @@ class EqEngine(private val repository: SettingsRepository) {
             failed += sessionId
         } else {
             effects[sessionId] = created
+            applied[sessionId] = settings
             lastKind = created.kind
         }
     }
 
     private fun release(sessionId: Int) {
+        applied.remove(sessionId)
         effects.remove(sessionId)?.release()
     }
 
