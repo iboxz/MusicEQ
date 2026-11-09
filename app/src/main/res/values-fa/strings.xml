@@ -11,6 +11,7 @@
     <string name="preset_vocal">وکال</string>
     <string name="preset_treble">تقویت صدای زیر</string>
     <string name="preset_voice_clarity">وضوح پیام صوتی</string>
+    <string name="preset_deep_bass">باس عمیق</string>
     <string name="preset_custom_suffix">%1$s (سفارشی)</string>
 
     <string name="status_connected">متصل</string>

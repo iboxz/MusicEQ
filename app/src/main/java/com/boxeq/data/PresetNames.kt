@@ -11,6 +11,7 @@ object PresetNames {
         BuiltInPresets.VOCAL -> context.getString(R.string.preset_vocal)
         BuiltInPresets.TREBLE -> context.getString(R.string.preset_treble)
         BuiltInPresets.VOICE_CLARITY -> context.getString(R.string.preset_voice_clarity)
+        BuiltInPresets.DEEP_BASS -> context.getString(R.string.preset_deep_bass)
         else -> preset.name
     }
 }

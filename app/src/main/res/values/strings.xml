@@ -11,6 +11,7 @@
     <string name="preset_vocal">Vocal</string>
     <string name="preset_treble">Treble</string>
     <string name="preset_voice_clarity">Voice Message Clarity</string>
+    <string name="preset_deep_bass">Deep Bass</string>
     <string name="preset_custom_suffix">%1$s (custom)</string>
 
     <string name="status_connected">Connected</string>

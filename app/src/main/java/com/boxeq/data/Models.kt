@@ -34,6 +34,7 @@ object BuiltInPresets {
     const val VOCAL = "vocal"
     const val TREBLE = "treble"
     const val VOICE_CLARITY = "voice_clarity"
+    const val DEEP_BASS = "deep_bass"
 
     // Order: 31, 62, 125, 250, 500, 1k, 2k, 4k, 8k, 16k Hz
     val all: List<EqPreset> = listOf(
@@ -45,6 +46,13 @@ object BuiltInPresets {
         EqPreset(
             VOICE_CLARITY, "Voice Message Clarity",
             listOf(-9f, -7f, -4f, -1f, 1f, 3f, 4.5f, 4f, 1.5f, -1f), builtIn = true,
+        ),
+        // Converted from a parametric EQ (HPQ 10 Hz; LS 85 Hz +12; HS 51.5 Hz -8; PK 120 Hz +8,
+        // 250 Hz -3, 1 kHz +2, 2.5 kHz -1.5, 6.5 kHz +3.5, 8 kHz -5). Each value is the combined
+        // response averaged over that band's range. The original -15 dB preamp is set per app.
+        EqPreset(
+            DEEP_BASS, "Deep Bass",
+            listOf(8.5f, 5.5f, 3.5f, -6f, -7.5f, -6.5f, -8.5f, -8.5f, -9.5f, -8.5f), builtIn = true,
         ),
     )
 

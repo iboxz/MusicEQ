@@ -68,7 +68,7 @@ class ConfigCodecTest {
 
     @Test fun builtInPresetsAreWellFormed() {
         assertEquals(
-            listOf("flat", "bass_boost", "vocal", "treble", "voice_clarity"),
+            listOf("flat", "bass_boost", "vocal", "treble", "voice_clarity", "deep_bass"),
             BuiltInPresets.all.map { it.id },
         )
         BuiltInPresets.all.forEach { assertEquals(10, it.gains.size); assertTrue(it.gains.all { g -> g in -12f..12f }) }
