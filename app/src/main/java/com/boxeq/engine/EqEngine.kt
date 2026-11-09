@@ -108,7 +108,7 @@ class EqEngine(private val repository: SettingsRepository) {
         known.values.filter { it.viaShizuku && it.sessionId !in seen }.forEach { dropSource(it, broadcast = false) }
         // Brand-new sessions first: that is the audible gap. Sessions that already have an effect come after.
         val all = (known.keys + effects.keys).toSet()
-        val (fresh, existing) = all.partition { it !in effects }
+        val (fresh, existing) = all.partition { !effects.containsKey(it) }
         fresh.forEach { reconcile(it) }
         existing.forEach { reconcile(it) }
         publish()
